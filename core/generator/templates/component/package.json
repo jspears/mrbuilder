@@ -1,0 +1,23 @@
+{
+  "name": "{{packageName}}",
+  "description": "{{description}}",
+  "version": "{{versionOf}}",
+  "author": "<{{options 'user'}}> {{options 'email'}}",
+  "license": "{{options 'license'}}",
+  "source": "src",
+  "main": "lib",
+  "repository": "{{repository}}/{{monorepo}}/{{project}}",
+  "dependencies": {
+    {{{ dependency "emeth"}}}
+  },
+  "devDependencies": {
+    {{{ dependency "{{builder"}}}
+  },
+  "scripts": {
+    "prepare": "{{builder}}",
+    "test": "{{builder}}",
+    "start":"{{builder}}",
+    "storybook": "{{builder}}",
+    "storybook:start": "{{builder}}"
+}
+}

@@ -1,0 +1,17 @@
+{
+  "name": "{{packageName}}",
+  "version": "{{repoVersion}}",
+  "description": "{{description}}",
+  "source": "src",
+  "main": "src",
+  "license": "{{options 'license'}}",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "{{monorepo}}-{{simpleName}}-cli": "./bin/cli.js"
+  },
+  "dependencies": {
+
+  }
+}

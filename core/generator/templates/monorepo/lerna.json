@@ -1,0 +1,12 @@
+{
+  "version": "{{version}}",
+  "npmClient": "{{npmClient}}",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      {{#if gitRemote}}
+        "gitRemote": {{gitRemote}}
+      {{/if}}
+    }
+  }
+}

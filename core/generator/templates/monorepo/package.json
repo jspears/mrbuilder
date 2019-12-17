@@ -1,0 +1,9 @@
+{
+  "name": "{{namespace}}{{name}}",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": {
+    "builder",
+    "components/**"
+  }
+}

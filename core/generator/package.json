@@ -1,0 +1,7 @@
+{
+  "name": "@mrbuilder/generator",
+  "version": "4.0.0-alpha.1",
+  "dependencies": {
+    "plop": "^2.5.3"
+  }
+}

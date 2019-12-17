@@ -1,0 +1,73 @@
+{
+  "name": "{{builderPackage}}",
+  "version": "1.0.0",
+  "license": "{{LICENSE}",
+  "bin": {
+    "{{monorepo}}-builder": "bin/builder.js"
+  },
+  "dependencies": {
+    "@mrbuilder/cli": "^4.0.0-alpha.14",
+    "@mrbuilder/plugin-typescript": "^4.0.0-alpha.14",
+    "@mrbuilder/preset-lib": "^4.0.0-alpha.14",
+    "@mrbuilder/preset-app": "^4.0.0-alpha.14",
+    "@mrbuilder/plugin-storybook": "^4.0.0-alpha.13",
+    "@mrbuilder/plugin-jest": "^4.0.0-alpha.14",
+    "@mrbuilder/plugin-emeth": "^4.0.0-alpha.10",
+    "@mrbuilder/preset-test": "^4.0.0-alpha.14",
+    "typescript-plugin-css-modules": "^2.1.1"
+  },
+  "devDependencies": {
+    "@mrbuilder/plugin-babel-7": "^4.0.0-alpha.14"
+  },
+  "mrbuilder": {
+    "plugins": [
+      "@mrbuilder/plugin-emeth",
+      [
+        "@mrbuilder/plugin-typescript",
+        {
+          "useBabel": true,
+          "tsconfig": {
+            "compileOnSave": false,
+            "compilerOptions": {
+              "baseUrl": "./",
+              "suppressExcessPropertyErrors": true,
+              "declaration": true,
+              "outDir": "lib",
+              "sourceRoot": "src",
+              "target": "es6",
+              "strictNullChecks": false,
+              "sourceMap": true,
+              "skipLibCheck": true,
+              "jsx": "react",
+              "forceConsistentCasingInFileNames": true,
+              "allowSyntheticDefaultImports": true,
+              "esModuleInterop": true,
+              "lib": [
+                "dom",
+                "webworker",
+                "es2019"
+              ],
+              "plugins": [
+                {
+                  "name": "typescript-plugin-css-modules",
+                  "options": {
+                    "classnameTransform": "camelCase",
+                    "customMatcher": "\\.cssm$",
+                    "dotenvOptions": {},
+                    "postCssOptions": {},
+                    "rendererOptions": {}
+                  }
+                }
+              ]
+            },
+            "include": [
+              "./src",
+              "./test",
+              "./public"
+            ]
+          }
+        }
+      ]
+    ]
+  }
+}
