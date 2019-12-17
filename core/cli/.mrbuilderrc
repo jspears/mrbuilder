@@ -140,7 +140,8 @@
     },
     "start": {
       "options": {
-        "bin": "@mrbuilder/plugin-webpack-dev-server/bin/cli"
+        "bin": "@mrbuilder/plugin-webpack-dev-server/bin/cli",
+        "isDevServer": true
       },
       "plugins": [
         "@mrbuilder/plugin-webpack-dev-server"
@@ -168,11 +169,24 @@
         ]
       ]
     },
+    "styleguide:start": {
+      "options": {
+        "bin": "@mrbuilder/plugin-react-styleguidist/bin/cli"
+      }
+    },
     "styleguide": {
       "options": {
-        "bin": "@mrbuilder/plugin-webpack/bin/cli"
+        "bin": "@mrbuilder/plugin-react-styleguidist/bin/cli"
       },
       "plugins": [
+        [
+          "@mrbuilder/plugin-webpack-dev-server",
+          false
+        ],
+        [
+          "@mrbuilder/plugin-html",
+          false
+        ],
         "@mrbuilder/plugin-react-styleguidist"
       ]
     },
@@ -181,7 +195,11 @@
         "bin": "@mrbuilder/plugin-storybook/bin/cli"
       },
       "plugins": [
-        "@mrbuilder/plugin-storybook"
+        "@mrbuilder/plugin-storybook",
+        [
+          "@mrbuilder/plugin-webpack-dev-server",
+          false
+        ]
       ]
     },
     "tailwind": {

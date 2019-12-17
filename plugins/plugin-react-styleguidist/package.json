@@ -9,31 +9,15 @@
     "react-styleguidist": "^10.2.0"
   },
   "mrbuilder": {
+    "options": {
+      "components": "./src/",
+      "componentPattern": "[A-Z]*.{ts,tsx,jsx,js}",
+      "showSidebar": false,
+      "usageMode": "expand"
+    },
     "plugins": [
-      [
-        "@mrbuilder/plugin-hot",
-        false
-      ],
       "@mrbuilder/plugin-doc-prop-types"
-    ],
-    "env": {
-      "styleguide": {
-        "plugins": [
-          [
-            "@mrbuilder/plugin-html",
-            false
-          ],
-          "@mrbuilder/plugin-doc-prop-types",
-          [
-            "@mrbuilder/plugin-webpack",
-            {
-              "demo": "./styleguide"
-            }
-          ],
-          "@mrbuilder/plugin-react-styleguidist"
-        ]
-      }
-    }
+    ]
   },
   "license": "0BSD",
   "peerDependencies": {

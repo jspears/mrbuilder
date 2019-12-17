@@ -283,15 +283,13 @@ export const resolveEnv = <K extends keyof PresetsPlugins>(envName: string, key:
             const envName = envs[i];
             const e: PresetsPlugins = config.env[envName];
             if (e && e[key]) {
-                ret.push(e[key]);
+                ret.unshift(e[key]);
             }
         }
     }
-
     if (config[key]) {
         ret.push(config[key]);
     }
-
     return ret;
 
 };
