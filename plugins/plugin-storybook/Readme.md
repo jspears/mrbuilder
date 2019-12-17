@@ -17,12 +17,12 @@ Provides [Storybook](https://storybook.js.org) support for mrbuilder.
 | sslCa         | string     |    | SSL CA     |
 | sslCert       | string     |    | SSL Cert   |
 | sslKey        | string     |    | SSL Key  |
-| dll           |    |    |    |
-| ci            |    |    |    |
-| smokeTest     |    |    |    |
-| quiet         |    |    |    |
-| host          |    |    |    |
-| ignorePreview |    |    |    |
+| dll           | boolean    | true   |  Use DLL mechanism for faster compiles   |
+| ci            | boolean    | false  | Build for CI    |
+| smokeTest     | boolean    | false  | Smoketest       |
+| quiet         | boolean    | false  |  build quitely   |
+| host          | string     | localhost   | hostname to use    |
+| ignorePreview | boolean    | false |  Don't do preview    |   
 | docs          |    |    |    |
-| frameworkPresets |    |    |    |
-| previewUrl    |    |    |    |
+| frameworkPresets | string array   |    |    |
+| previewUrl    | string   |    |    |

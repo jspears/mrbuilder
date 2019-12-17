@@ -8,8 +8,9 @@
     "@mrbuilder/plugin-react-styleguidist": "^4.0.0-alpha.14"
   },
   "scripts": {
-    "prepare": "NODE_ENV=production mrbuilder --app ./lib",
-    "start": "mrbuilder"
+    "styleguide": "mrbuilder",
+    "prepare": "NODE_ENV=production yarn run styleguide",
+    "styleguide:start": "mrbuilder"
   },
   "source": "src",
   "license": "0BSD"

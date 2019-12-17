@@ -1,5 +1,4 @@
 {
-  "plugin": "./src/index",
   "plugins": [
     [
       "@mrbuilder/plugin-version",
@@ -7,54 +6,17 @@
         "module": "@mrbuilder/cli/package.json"
       }
     ],
-    "@mrbuilder/plugin-filetypes",
-    "@mrbuilder/plugin-fonts",
-    "@mrbuilder/plugin-env",
     [
-      "@mrbuilder/plugin-css",
-      false
-    ],
-    [
-      "@mrbuilder/plugin-less",
-      false
-    ],
-    [
-      "@mrbuilder/plugin-stylus",
-      false
-    ],
-    [
-      "@mrbuilder/plugin-html",
-      false
-    ],
-    "@mrbuilder/plugin-doc-prop-types",
-    [
-      "@mrbuilder/plugin-webpack",
+      "@mrbuilder/plugin-typescript",
       {
-        "app": "docs",
-        "devtool": "source-map",
-        "node": {
-          "fs": "empty"
-        }
+        "useBabel": true
       }
     ],
     [
-      "@mrbuilder/plugin-hot",
-      false
-    ],
-    [
-      "@mrbuilder/plugin-chunk",
-      false
-    ],
-    [
-      "@mrbuilder/plugin-clean",
+      "@mrbuilder/plugin-react-styleguidist",
       {
-        "allowExternal": true,
-        "exclude": ".git"
-      }
-    ],
-    [
-      "@mrbuilder/wiki",
-      {
+        "showSidebar": true,
+
         "styleguideComponents": {
           "LogoRenderer": "@mrbuilder/wiki/src/components/LogoRenderer"
         },
@@ -74,43 +36,43 @@
             "sections": [
               {
                 "name": "Overview",
-                "content": "../docs/overview.md"
+                "content": "../../docs/overview.md"
               },
               {
                 "name": "Do I need a monorepo",
-                "content": "../docs/monorepo.md"
+                "content": "../../docs/monorepo.md"
               },
               {
                 "name": "Upgrading to 4.x",
-                "content": "../docs/upgrade-3-4.md"
+                "content": "../../docs/upgrade-3-4.md"
               },
               {
                 "name": "Upgrading to 3.x",
-                "content": "../docs/upgrade-2-3.md"
+                "content": "../../docs/upgrade-2-3.md"
               },
               {
                 "name": "Upgrading to 2.x",
-                "content": "../docs/upgrade-1-2.md"
+                "content": "../../docs/upgrade-1-2.md"
               },
               {
                 "name": "Multi Module Project",
-                "content": "../docs/getting-started.md"
+                "content": "../../docs/getting-started.md"
               },
               {
                 "name": "Configuration",
-                "content": "../docs/configuration.md"
+                "content": "../../docs/configuration.md"
               },
               {
                 "name": "Plugins and Presets",
-                "content": "../docs/plugins_and_presets.md"
+                "content": "../../docs/plugins_and_presets.md"
               },
               {
                 "name": "Tools",
-                "content": "../docs/tools.md"
+                "content": "../../docs/tools.md"
               },
               {
                 "name": "Debugging",
-                "content": "../docs/debugging.md"
+                "content": "../../docs/debugging.md"
               }
             ]
           },
