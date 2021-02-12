@@ -87,6 +87,5 @@
     "access": "public",
     "registry": "http://registry.npmjs.org"
   },
-  "license": "MIT",
-  "gitHead": "5440d99a5299569a36e408111d91712d2cb687e1"
+  "license": "MIT"
 }
