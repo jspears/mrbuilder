@@ -53,7 +53,7 @@ module.exports = function (config) {
 
     webpack.devtool = mrb('devtool', 'inline-source-map');
     const testIndex = mrb('testIndex', path.join(__dirname, 'test-index.js'));
-    const files     = mrb('files', [require.resolve(testIndex)]);
+    const files     = mrb('files', [optionsManager.require.resolve(testIndex.replace(/^[~]/, `${process.cwd()}/`))]);
     webpack.entry   = testIndex;
     const preprocessors =  Array.isArray(_preprocessors) ? files.reduce(function (ret, file) {
         if (typeof file === 'string') {
