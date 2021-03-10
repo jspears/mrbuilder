@@ -17,26 +17,26 @@ function cssLoader(webpack, test, modules = false, om, ...conf) {
 function cssLoaderGen(webpack, test, modules = false, om, ...conf) {
 
     const mrb              = (v, d) => om.config('@mrbuilder/plugin-css' + (v ? `.${v}` : ''), d);
-    const localsConvention = mrb('localsConvention', mrb('camelCase', true) ? 'camelCase' : 'asIs');
+    const exportLocalsConvention = mrb('localsConvention', mrb('camelCase', true) ? 'camelCase' : 'asIs');
     const sideEffects      = mrb('sideEffects', true);
 
     const loaders = [{
         loader : 'css-loader',
         options: modules ? {
             sourceMap: mrb('sourceMap', true),
-            localsConvention,
             modules  : modules ? {
                 ...(typeof modules === 'object' ? modules : {}),
                 localIdentName: mrb('localIdentName', '[hash]_[package-name]_[hyphen:base-name]_[local]'),
-                context       : mrb('context', om.config('@mbuilder/cli.sourceDir', 'src')),
+                localIdentContext: mrb('context', om.config('@mbuilder/cli.sourceDir', 'src')),
+                exportLocalsConvention,
                 getLocalIdent
             } : false
         } : {
-            sourceMap: mrb('sourceMap', true),
-            localsConvention,
+                sourceMap: mrb('sourceMap', true),
             modules  : modules ? {
                 ...(typeof modules === 'object' ? modules : {}),
-                context: mrb('context', om.config('@mbuilder/cli.sourceDir', 'src'))
+                exportLocalsConvention,
+                localIdentContext: mrb('context', om.config('@mbuilder/cli.sourceDir', 'src'))
             } : false
         }
     }];
@@ -54,7 +54,13 @@ function cssLoaderGen(webpack, test, modules = false, om, ...conf) {
                 plugins.push(v());
             }
         });
-    }
+    } 
+
+    plugins.push(['postcss-modules', {
+        getJSON(cssFileName, json, outputFileName) {
+            console.log('WHAT HELLO', cssFileName, json, outputFileName);
+        }
+    }])
     if (plugins.length) {
         loaders.push({
             loader : 'postcss-loader',
@@ -63,7 +69,7 @@ function cssLoaderGen(webpack, test, modules = false, om, ...conf) {
             }
         });
     }
-
+ 
 
     if (conf) {
         loaders.push(...conf);

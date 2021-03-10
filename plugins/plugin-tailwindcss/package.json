@@ -4,8 +4,9 @@
   "description": "CSS support for mbuilder",
   "dependencies": {
     "@mrbuilder/plugin-css": "^4.4.0",
-    "postcss-loader": "^3.0.0",
-    "tailwindcss": "^1.2.0"
+    "postcss-loader": "^5.1.0",
+    "tailwindcss": "^2.0.3",
+    "postcss-import": "^14.0.0"
   },
   "peerDependencies": {
     "@mrbuilder/cli": "^4.0.0"
